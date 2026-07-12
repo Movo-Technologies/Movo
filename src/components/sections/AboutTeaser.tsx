@@ -17,10 +17,10 @@ export function AboutTeaser() {
           <div className="lg:col-span-8">
             <FadeUp>
               <p className="text-fg text-[length:var(--text-h1)] leading-[1.15] font-medium tracking-tight text-balance">
-                Motion is more than a metaphor at Movo — it is the mechanism by
-                which ideas become ventures, and ventures become industries. We
-                exist to keep things moving: people, businesses, and the belief
-                that progress is always possible.
+                Motion is more than a metaphor at Movo: it is the mechanism by
+                which ideas become ventures, and ventures become industries.
+                We exist to keep things moving: people, businesses, and the
+                belief that progress is always possible.
               </p>
             </FadeUp>
 

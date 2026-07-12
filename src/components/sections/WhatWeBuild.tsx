@@ -9,7 +9,7 @@ export function WhatWeBuild() {
         <SectionHeader
           eyebrow="03 / What We Build"
           title="An ecosystem of momentum."
-          description="Movo operates across five interconnected areas — each one a different way of turning ideas into motion."
+          description="Movo operates across five interconnected areas, each one a different way of turning ideas into motion."
         />
 
         <div className="mt-16 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-5">

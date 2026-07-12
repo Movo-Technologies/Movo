@@ -12,7 +12,7 @@ export function EcosystemPreview() {
             <SectionHeader
               eyebrow="04 / Ecosystem"
               title="One ecosystem. Many ventures."
-              description="Every venture inside Movo shares the same origin, philosophy, and infrastructure — connected nodes in a single system built for momentum."
+              description="Every venture inside Movo shares the same origin, philosophy, and infrastructure: connected nodes in a single system built for momentum."
             />
             <div className="mt-10">
               <Button href="/ecosystem" variant="secondary">

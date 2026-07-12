@@ -7,7 +7,7 @@ import { SOCIAL_LINKS } from "@/data/nav";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
-  description: "Get in touch with Movo — let’s build what’s next, together.",
+  description: "Get in touch with Movo. Let’s build what’s next, together.",
   path: "/contact",
 });
 
@@ -17,7 +17,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let’s move together."
-        description="Whether you’re a builder, a founder, or a future partner — we’d like to hear from you."
+        description="Whether you’re a builder, a founder, or a future partner, we’d like to hear from you."
       />
 
       <section className="border-border border-t">

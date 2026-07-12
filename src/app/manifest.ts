@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Movo — Built in Motion",
+    name: "Movo: Built in Motion",
     short_name: "Movo",
     description:
       "Movo is an innovation company building ventures, technologies, and experiences that create momentum across industries.",

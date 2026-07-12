@@ -16,7 +16,7 @@ export const VENTURES: Venture[] = [
     name: "Movo Labs",
     tagline: "Where ideas become prototypes.",
     description:
-      "Movo Labs is the research and development arm of the ecosystem — the place where early concepts in software, AI, and emerging technology are tested, broken, and rebuilt until they’re ready to move into the world.",
+      "Movo Labs is the research and development arm of the ecosystem: the place where early concepts in software, AI, and emerging technology are tested, broken, and rebuilt until they’re ready to move into the world.",
     focus: "Technology & Emerging Innovation",
     icon: "flask",
     status: "Active",
@@ -26,7 +26,7 @@ export const VENTURES: Venture[] = [
     name: "Movo Studios",
     tagline: "Stories that create culture.",
     description:
-      "Movo Studios develops media, music, and creative work designed to influence culture and inspire audiences — from original storytelling to full-scale creative production.",
+      "Movo Studios develops media, music, and creative work designed to influence culture and inspire audiences, from original storytelling to full-scale creative production.",
     focus: "Media & Creative Industries",
     icon: "clapperboard",
     status: "Active",
@@ -36,7 +36,7 @@ export const VENTURES: Venture[] = [
     name: "Movo Systems",
     tagline: "The infrastructure behind the motion.",
     description:
-      "Movo Systems builds the platforms, tooling, and technical infrastructure that every other venture in the ecosystem runs on — quietly powering momentum at scale.",
+      "Movo Systems builds the platforms, tooling, and technical infrastructure that every other venture in the ecosystem runs on, quietly powering momentum at scale.",
     focus: "Technology & Infrastructure",
     icon: "network",
     status: "Building",
@@ -46,7 +46,7 @@ export const VENTURES: Venture[] = [
     name: "Movo Ventures",
     tagline: "Backing the next generation of builders.",
     description:
-      "Movo Ventures identifies, incubates, and supports new companies that align with the ecosystem’s vision — providing capital, strategy, and infrastructure to founders ready to move.",
+      "Movo Ventures identifies, incubates, and supports new companies that align with the ecosystem’s vision, providing capital, strategy, and infrastructure to founders ready to move.",
     focus: "Venture Development",
     icon: "rocket",
     status: "Building",
@@ -56,7 +56,7 @@ export const VENTURES: Venture[] = [
     name: "Future Ventures",
     tagline: "What comes next is already in motion.",
     description:
-      "The ecosystem is never finished. Future Ventures represents the next wave of ideas, industries, and technologies Movo has yet to announce — reserved for what’s still taking shape.",
+      "The ecosystem is never finished. Future Ventures represents the next wave of ideas, industries, and technologies Movo has yet to announce, reserved for what’s still taking shape.",
     focus: "Reserved for What’s Next",
     icon: "infinity",
     status: "Future",

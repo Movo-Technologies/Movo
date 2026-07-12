@@ -3,7 +3,7 @@ export const PHILOSOPHY_PRINCIPLES = [
     number: "01",
     title: "Motion over stagnation",
     description:
-      "Standing still is the only real failure. We treat movement as the default state — evaluating every decision by whether it keeps something moving forward.",
+      "Standing still is the only real failure. We treat movement as the default state, evaluating every decision by whether it keeps something moving forward.",
   },
   {
     number: "02",

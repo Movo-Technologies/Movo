@@ -23,7 +23,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Movo"
         title="Motion is the foundation of growth."
-        description="Founded on the belief that progress is born from movement, Movo exists to transform ideas into motion — and motion into impact."
+        description="Founded on the belief that progress is born from movement, Movo exists to transform ideas into motion, and motion into impact."
       />
 
       <section className="border-border border-t">
@@ -58,16 +58,16 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="03 / The Story"
             title="Founded on a single belief."
-            description="The name ’Movo’ is derived from the concept of movement — representing continuous growth, evolution, and forward progress."
+            description="The name ’Movo’ is derived from the concept of movement, representing continuous growth, evolution, and forward progress."
           />
           <FadeUp delay={0.1}>
             <p className="text-fg mt-10 max-w-3xl text-xl leading-relaxed">
               Movo serves as the parent organization behind a growing portfolio
               of ventures spanning technology, media, artificial intelligence,
               creative industries, live experiences, and emerging innovations.
-              This philosophy guides every initiative undertaken by the company
-              — influencing how products are developed, communities are built,
-              and opportunities are created.
+              This philosophy guides every initiative undertaken by the
+              company, influencing how products are developed, communities
+              are built, and opportunities are created.
             </p>
           </FadeUp>
         </div>
@@ -130,7 +130,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="06 / Leadership"
             title="The people building Movo forward."
-            description="Our leadership profiles are being finalized as the ecosystem grows — this section will introduce the team steering Movo’s next stage."
+            description="Our leadership profiles are being finalized as the ecosystem grows. This section will introduce the team steering Movo’s next stage."
           />
           <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 4 }).map((_, i) => (
@@ -150,7 +150,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="07 / What’s Next"
             title="The roadmap is never finished."
-            description="Movo’s next decade is focused on expanding the ecosystem — new ventures, new industries, and new technologies that carry the same belief forward: the future belongs to those willing to move."
+            description="Movo’s next decade is focused on expanding the ecosystem: new ventures, new industries, and new technologies that carry the same belief forward. The future belongs to those willing to move."
           />
         </div>
       </section>

@@ -10,7 +10,7 @@ import { VENTURES } from "@/data/ventures";
 export const metadata: Metadata = buildMetadata({
   title: "Ecosystem",
   description:
-    "Movo Labs, Movo Studios, Movo Systems, Movo Ventures, and what’s next — explore the connected ecosystem of ventures built by Movo.",
+    "Movo Labs, Movo Studios, Movo Systems, Movo Ventures, and what’s next: explore the connected ecosystem of ventures built by Movo.",
   path: "/ecosystem",
 });
 
@@ -20,7 +20,7 @@ export default function EcosystemPage() {
       <PageHero
         eyebrow="Ecosystem"
         title="One ecosystem. Infinite momentum."
-        description="Every venture inside Movo shares the same origin, philosophy, and infrastructure — a single system built to keep generating momentum across industries."
+        description="Every venture inside Movo shares the same origin, philosophy, and infrastructure: a single system built to keep generating momentum across industries."
       />
 
       <section className="border-border border-t py-8 lg:py-16">

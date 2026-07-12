@@ -56,7 +56,7 @@ export function ContactForm() {
           Message sent.
         </p>
         <p className="text-fg-muted mt-3">
-          Thanks for reaching out — someone from Movo will be in touch shortly.
+          Thanks for reaching out. Someone from Movo will be in touch shortly.
         </p>
       </div>
     );

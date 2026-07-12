@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 const SITE_NAME = "Movo";
-const SITE_URL = "https://movo.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.movotechnologies.com";
 const DEFAULT_DESCRIPTION =
   "Movo is an innovation company building ventures, technologies, and experiences that create momentum across industries.";
 

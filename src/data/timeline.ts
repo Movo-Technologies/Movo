@@ -7,7 +7,7 @@ export const TIMELINE = [
   {
     label: "The Foundation",
     description:
-      "The ecosystem model takes shape — Movo positions itself as a parent organization built to generate, not just support, new ventures.",
+      "The ecosystem model takes shape. Movo positions itself as a parent organization built to generate, not just support, new ventures.",
   },
   {
     label: "The Ecosystem Forms",
@@ -17,7 +17,7 @@ export const TIMELINE = [
   {
     label: "The Expansion",
     description:
-      "Movo extends into events, experiences, and emerging technology — proving the model works across industries, not just within one.",
+      "Movo extends into events, experiences, and emerging technology, proving the model works across industries, not just within one.",
   },
   {
     label: "The Next Decade",

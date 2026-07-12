@@ -20,7 +20,7 @@ export default function PhilosophyPage() {
       <PageHero
         eyebrow="Philosophy"
         title="What we believe."
-        description="Four principles guide every venture, product, and decision inside the Movo ecosystem — a simple operating philosophy for building things that last."
+        description="Four principles guide every venture, product, and decision inside the Movo ecosystem: a simple operating philosophy for building things that last."
       />
 
       <section className="border-border border-t">
