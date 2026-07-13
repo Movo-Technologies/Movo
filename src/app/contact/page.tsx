@@ -27,7 +27,12 @@ export default function ContactPage() {
               <p className="text-fg-muted font-mono text-xs tracking-[0.2em] uppercase">
                 Reach us
               </p>
-              <p className="text-fg mt-4 text-lg">hello@movo.com</p>
+              <a
+                href="mailto:info@movotechnologies.com"
+                className="text-fg hover:text-accent mt-4 block text-lg transition-colors duration-300"
+              >
+                info@movotechnologies.com
+              </a>
 
               <p className="text-fg-muted mt-10 font-mono text-xs tracking-[0.2em] uppercase">
                 Follow
