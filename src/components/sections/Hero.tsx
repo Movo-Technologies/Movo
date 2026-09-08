@@ -25,30 +25,35 @@ export function Hero() {
         <div>
           <FadeUp>
             <p className="text-fg-muted mb-6 font-mono text-xs tracking-[0.2em] uppercase">
-              Built in Motion
+              Movo Technologies
             </p>
           </FadeUp>
 
           <h1 className="text-fg text-[length:var(--text-display-lg)] leading-[0.98] font-semibold tracking-tight">
-            <TextReveal text="We Build" />
+            <TextReveal text="Built in" />
             <br />
-            <TextReveal text="Momentum." delay={0.12} />
+            <TextReveal text="Motion." delay={0.12} />
           </h1>
 
           <FadeUp delay={0.35}>
             <p className="text-fg-muted mt-8 max-w-lg text-lg leading-relaxed">
-              Movo is an innovation company building ventures, technologies, and
-              experiences that move people, industries, and society forward.
+              We build technology, products, creative systems and ventures
+              designed to move ideas from possibility to execution.
+            </p>
+            <p className="text-fg-muted mt-5 max-w-lg leading-relaxed">
+              From software and digital infrastructure to music, platforms and
+              physical products, Movo is an ecosystem for building what comes
+              next.
             </p>
           </FadeUp>
 
           <FadeUp delay={0.45}>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Button href="/contact" variant="primary">
-                Start Moving
+              <Button href="#ecosystem" variant="primary">
+                Explore the Ecosystem
               </Button>
-              <Button href="/about" variant="secondary">
-                Explore Movo
+              <Button href="/contact" variant="secondary">
+                Start Something
               </Button>
             </div>
           </FadeUp>
@@ -61,7 +66,7 @@ export function Hero() {
           className="hidden justify-center lg:flex"
         >
           <div className="animate-float">
-            <LogoMark className="text-fg/90 h-56 w-56" />
+            <LogoMark className="h-52 w-72" />
           </div>
         </motion.div>
       </div>

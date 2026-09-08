@@ -1,3 +1,4 @@
+import { BrandVisual } from "@/components/sections/BrandVisual";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/PageHero";
@@ -18,6 +19,7 @@ export default function PhilosophyPage() {
   return (
     <>
       <PageHero
+        visual={<BrandVisual name="philosophy" priority />}
         eyebrow="Philosophy"
         title="What we believe."
         description="Four principles guide every venture, product, and decision inside the Movo ecosystem: a simple operating philosophy for building things that last."
@@ -60,7 +62,7 @@ export default function PhilosophyPage() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection title="Put a principle into practice." />
     </>
   );
 }

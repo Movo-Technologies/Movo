@@ -1,6 +1,10 @@
 import type { IconName } from "@/lib/icons";
 
-export const FOCUS_AREAS: { icon: IconName; title: string; description: string }[] = [
+export const FOCUS_AREAS: {
+  icon: IconName;
+  title: string;
+  description: string;
+}[] = [
   {
     icon: "cpu",
     title: "Technology",

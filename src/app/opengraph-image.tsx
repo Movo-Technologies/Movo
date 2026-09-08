@@ -1,9 +1,12 @@
 import { ImageResponse } from "next/og";
+import { logoDataUrl } from "@/lib/brand";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const alt = "Movo Technologies. Built in Motion.";
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const src = await logoDataUrl();
   return new ImageResponse(
     <div
       style={{
@@ -13,43 +16,34 @@ export default function OpengraphImage() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        background: "#0A0A0A",
-        color: "#F5F5F5",
+        background: "#ffffff",
+        color: "#111111",
         fontFamily: "sans-serif",
       }}
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} width={180} height={127} alt="" />
+
       <div
         style={{
           display: "flex",
-          alignItems: "center",
-          gap: 16,
-          fontSize: 40,
-          fontWeight: 600,
-          letterSpacing: -1,
-        }}
-      >
-        <div
-          style={{
-            width: 20,
-            height: 20,
-            borderRadius: "50%",
-            background: "#8C52FF",
-          }}
-        />
-        MOVO
-      </div>
-      <div
-        style={{
-          marginTop: 28,
+          marginTop: 24,
           fontSize: 72,
           fontWeight: 600,
           letterSpacing: -2,
         }}
       >
-        We Build Momentum.
-      </div>
-      <div style={{ marginTop: 20, fontSize: 26, color: "#9CA3AF" }}>
         Built in Motion.
+      </div>
+      <div
+        style={{
+          display: "flex",
+          marginTop: 20,
+          fontSize: 24,
+          color: "#6b7280",
+        }}
+      >
+        Technology. Products. Creative systems. Ventures.
       </div>
     </div>,
     { ...size },

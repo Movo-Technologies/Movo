@@ -4,7 +4,7 @@ const SITE_NAME = "Movo";
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.movotechnologies.com";
 const DEFAULT_DESCRIPTION =
-  "Movo is an innovation company building ventures, technologies, and experiences that create momentum across industries.";
+  "Movo Technologies builds software, digital products, creative systems and ventures. Explore Movo Labs, Studios, Atlas, Giveaway App early access and El Patron.";
 
 export function buildMetadata({
   title,

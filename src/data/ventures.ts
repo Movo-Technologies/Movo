@@ -1,5 +1,5 @@
 import type { IconName } from "@/lib/icons";
-
+import { PRODUCT_LINKS } from "@/data/products";
 export type Venture = {
   slug: string;
   name: string;
@@ -7,62 +7,202 @@ export type Venture = {
   description: string;
   focus: string;
   icon: IconName;
-  status: "Active" | "Building" | "Future";
+  status: "Active" | "Building" | "Future" | "Early Access / Beta";
+  paragraphs?: string[];
+  capabilities?: [string, string][];
+  primary: [string, string];
+  secondary?: [string, string];
+  email?: string;
 };
-
 export const VENTURES: Venture[] = [
   {
     slug: "movo-labs",
     name: "Movo Labs",
-    tagline: "Where ideas become prototypes.",
-    description:
-      "Movo Labs is the research and development arm of the ecosystem: the place where early concepts in software, AI, and emerging technology are tested, broken, and rebuilt until they’re ready to move into the world.",
-    focus: "Technology & Emerging Innovation",
+    focus: "Technology & Product Development",
     icon: "flask",
     status: "Active",
+    tagline: "We build the technology behind ambitious ideas.",
+    description:
+      "Movo Labs works with businesses, founders and organizations to design and build digital products that solve real problems.",
+    paragraphs: [
+      "From a company’s first website to custom platforms, internal systems, mobile applications and full software products, Labs turns requirements into functional technology.",
+      "We are interested in more than simply shipping code. We work to understand what needs to work, why it needs to work, and build the most appropriate system around it.",
+    ],
+    capabilities: [
+      [
+        "Websites",
+        "Corporate websites, product websites, campaign platforms, portals and digital experiences built around clarity, performance, usability and business objectives.",
+      ],
+      [
+        "Web Applications",
+        "Interactive platforms designed around specific workflows, users and business requirements.",
+      ],
+      [
+        "Mobile Applications",
+        "Mobile experiences developed around a defined product, service or operational need.",
+      ],
+      [
+        "Custom Software",
+        "Software for processes that cannot be adequately handled by generic off-the-shelf tools.",
+      ],
+      [
+        "Internal Business Systems",
+        "Dashboards, administrative systems, workflow tools, portals, reporting systems and operational software.",
+      ],
+      [
+        "Product Development",
+        "Support from concept and requirements through interface, engineering, testing and deployment.",
+      ],
+    ],
+    primary: ["Start a Project", "/contact?intent=labs"],
+    secondary: ["Talk to Movo Labs", "mailto:labs@movotechnologies.com"],
+    email: "labs@movotechnologies.com",
   },
   {
     slug: "movo-studios",
     name: "Movo Studios",
-    tagline: "Stories that create culture.",
-    description:
-      "Movo Studios develops media, music, and creative work designed to influence culture and inspire audiences, from original storytelling to full-scale creative production.",
-    focus: "Media & Creative Industries",
+    focus: "Music & Creative Services",
     icon: "clapperboard",
     status: "Active",
+    tagline: "Sound is only part of the story.",
+    description:
+      "Movo Studios works with artists and creative projects across the process of creating, refining, packaging and releasing music.",
+    paragraphs: [
+      "We help creators move from an idea or recording toward a body of work that sounds intentional, looks intentional and reaches audiences as a complete product.",
+    ],
+    capabilities: [
+      [
+        "Music Production",
+        "Production built around the identity of the artist and the direction of the record, from developing an idea to shaping arrangements, sound and overall production direction.",
+      ],
+      [
+        "Mixing",
+        "Turning individual recordings and production elements into a balanced, cohesive record.",
+      ],
+      [
+        "Mastering",
+        "Preparing the final mix for release with attention to translation, consistency and playback across platforms and environments.",
+      ],
+      [
+        "Branding & Identity Curation",
+        "Visual direction, project identity, release aesthetics and broader artist presentation that help the work look, feel and communicate with intention.",
+      ],
+      [
+        "Music Distribution",
+        "Supporting artists through preparing and distributing releases to major digital streaming platforms. Tell us about your release so we can discuss the support required.",
+      ],
+    ],
+    primary: ["Book a Project", "/contact?intent=studios"],
+    secondary: ["Plan a Release", "/contact?intent=release"],
+    email: "studio@movotechnologies.com",
   },
   {
     slug: "movo-systems",
     name: "Movo Systems",
-    tagline: "The infrastructure behind the motion.",
-    description:
-      "Movo Systems builds the platforms, tooling, and technical infrastructure that every other venture in the ecosystem runs on, quietly powering momentum at scale.",
-    focus: "Technology & Infrastructure",
+    focus: "Software Products & Systems",
     icon: "network",
     status: "Building",
+    tagline: "Software designed to keep working.",
+    description:
+      "Movo Systems develops software products designed around recurring operational and business problems.",
+    paragraphs: [
+      "Where Movo Labs builds solutions for individual clients and projects, Movo Systems focuses on products that can serve many organizations through a repeatable software platform.",
+      "Atlas leads this work: an ERP platform that connects day-to-day business operations and gives providers a foundation for serving their own clients.",
+    ],
+    primary: ["Explore Atlas", "/ecosystem/atlas"],
+    secondary: ["Request a Demo", "/contact?intent=atlas"],
+  },
+  {
+    slug: "giveaway-app",
+    name: "Giveaway App",
+    focus: "Interactive Giveaways",
+    icon: "rocket",
+    status: "Early Access / Beta",
+    tagline: "Giveaways people actually participate in.",
+    description:
+      "Giveaway App is exploring a more interactive way to run online giveaways. Participation goes beyond a simple entry and random draw, with experiences designed to engage participants and be useful for hosts.",
+    paragraphs: [
+      "The product is currently entering early access. We are inviting an initial group of users to test the platform, participate in test giveaways, host giveaways, report friction and help shape the experience before public launch.",
+    ],
+    primary: ["Join the Whitelist", "/ecosystem/giveaway-app#whitelist"],
+    secondary: [
+      "I’m Interested in Hosting Giveaways",
+      "/ecosystem/giveaway-app?host=yes#whitelist",
+    ],
+    email: "support@movotechnologies.com",
   },
   {
     slug: "movo-ventures",
     name: "Movo Ventures",
-    tagline: "Backing the next generation of builders.",
-    description:
-      "Movo Ventures identifies, incubates, and supports new companies that align with the ecosystem’s vision, providing capital, strategy, and infrastructure to founders ready to move.",
-    focus: "Venture Development",
+    focus: "Products & New Ventures",
     icon: "rocket",
     status: "Building",
+    tagline: "Some ideas deserve to become companies.",
+    description:
+      "Movo Ventures develops businesses that extend beyond traditional software and services.",
+    paragraphs: [
+      "It gives Movo room to explore products, markets and ideas that deserve an identity and operating model of their own.",
+      "El Patron is the first venture featured here: an emerging thermal wear brand with its own character, connected to Movo’s shared approach to building.",
+    ],
+    primary: ["Explore El Patron", "/ecosystem/el-patron"],
+    secondary: ["Product Enquiries", "/contact?intent=el-patron"],
+  },
+  {
+    slug: "atlas",
+    name: "Atlas",
+    focus: "A Movo Systems Product",
+    icon: "network",
+    status: "Building",
+    tagline: "Your operations. One connected workspace.",
+    description:
+      "Atlas is an open-core ERP platform for organizations and software providers, bringing finance, sales, inventory and people operations into a shared system.",
+    paragraphs: [
+      "Teams can connect the records and workflows that usually sit across separate departments. Providers can use the same foundation to deliver branded, separate workspaces for their clients.",
+      "Explore the product site for a closer look, or request a demonstration around the way your organization works.",
+    ],
+    capabilities: [
+      [
+        "Run your organization",
+        "Bring departments together around business records, reporting and workflows, with modules spanning finance, CRM, procurement, projects and more.",
+      ],
+      [
+        "Serve your clients",
+        "Offer an ERP under your own brand, with a provider portal to manage client workspaces, branding and module access.",
+      ],
+    ],
+    primary: ["Request a Demo", "/contact?intent=atlas"],
+    secondary: ["Visit Atlas", PRODUCT_LINKS.atlas],
+    email: "support@movotechnologies.com",
+  },
+  {
+    slug: "el-patron",
+    name: "El Patron",
+    focus: "A Movo Venture",
+    icon: "infinity",
+    status: "Building",
+    tagline: "Designed for warmth. Built with character.",
+    description:
+      "El Patron is a thermal wear brand being developed under Movo Ventures.",
+    paragraphs: [
+      "It approaches cold-weather clothing as both utility and identity, creating pieces intended to provide warmth without treating functional clothing as an afterthought.",
+      "An emerging brand with its own identity and a place in the wider Movo ecosystem. Contact us for product and commercial enquiries as the venture develops.",
+    ],
+    primary: ["Product Enquiries", "/contact?intent=el-patron"],
+    secondary: ["Explore Movo Ventures", "/ecosystem/movo-ventures"],
   },
   {
     slug: "future-ventures",
     name: "Future Ventures",
-    tagline: "What comes next is already in motion.",
-    description:
-      "The ecosystem is never finished. Future Ventures represents the next wave of ideas, industries, and technologies Movo has yet to announce, reserved for what’s still taking shape.",
-    focus: "Reserved for What’s Next",
+    focus: "What Comes Next",
     icon: "infinity",
     status: "Future",
+    tagline: "What comes next is already in motion.",
+    description:
+      "The ecosystem is never finished. This space is reserved for ideas still taking shape, as Movo explores what to build next.",
+    primary: ["Explore Movo Ventures", "/ecosystem/movo-ventures"],
   },
 ];
-
+export const ECOSYSTEM = VENTURES.slice(0, 5);
 export function getVentureBySlug(slug: string) {
   return VENTURES.find((v) => v.slug === slug);
 }

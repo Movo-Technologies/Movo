@@ -1,35 +1,24 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export function LogoMark({ className }: { className?: string }) {
+/** Choose the original artwork by surface color, independently of browser theme. */
+export function LogoMark({
+  className,
+  onDark = false,
+}: {
+  className?: string;
+  onDark?: boolean;
+}) {
   return (
-    <svg
-      viewBox="0 0 100 100"
-      fill="none"
-      className={cn("h-8 w-8", className)}
+    <Image
+      src={onDark ? "/brand/movo-white.svg" : "/brand/movo.png"}
+      width={onDark ? 1281 : 1347}
+      height={onDark ? 903 : 950}
+      alt=""
       aria-hidden="true"
-    >
-      <path
-        d="M12 78 C 30 78, 38 62, 46 46"
-        stroke="currentColor"
-        strokeOpacity="0.18"
-        strokeWidth="7"
-        strokeLinecap="round"
-      />
-      <path
-        d="M26 82 C 42 82, 50 64, 58 46"
-        stroke="currentColor"
-        strokeOpacity="0.4"
-        strokeWidth="7"
-        strokeLinecap="round"
-      />
-      <path
-        d="M40 84 C 54 84, 60 66, 68 46"
-        stroke="currentColor"
-        strokeWidth="7"
-        strokeLinecap="round"
-      />
-      <circle cx="76" cy="30" r="10" fill="var(--color-accent)" />
-    </svg>
+      sizes="(min-width: 1024px) 288px, 80px"
+      className={cn("h-8 w-12 object-contain", className)}
+    />
   );
 }
 
@@ -43,15 +32,8 @@ export function Logo({
   onDark?: boolean;
 }) {
   return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-2.5 font-semibold tracking-tight",
-        onDark ? "text-fg-on-dark" : "text-fg",
-        className,
-      )}
-    >
-      <LogoMark className={cn("h-6 w-6", markClassName)} />
-      MOVO
+    <span role="img" aria-label="Movo" className={cn("inline-flex", className)}>
+      <LogoMark onDark={onDark} className={cn("h-8 w-11", markClassName)} />
     </span>
   );
 }

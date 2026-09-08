@@ -11,6 +11,22 @@ import { PageTransition } from "@/components/layout/PageTransition";
 export const metadata: Metadata = {
   ...buildMetadata({ title: "Movo" }),
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: [
+      {
+        url: "/brand/favicon-light.png",
+        type: "image/png",
+        sizes: "48x48",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/brand/favicon-dark.png",
+        type: "image/png",
+        sizes: "48x48",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

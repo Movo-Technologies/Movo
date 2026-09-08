@@ -2,8 +2,7 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Ecosystem", href: "/ecosystem" },
-  { label: "Philosophy", href: "/philosophy" },
-  { label: "Contact", href: "/contact" },
+  { label: "Giveaway Beta", href: "/ecosystem/giveaway-app" },
 ] as const;
 
 export const FOOTER_LINKS = NAV_LINKS;

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/data/nav";
-import { Logo } from "@/components/icons/Logo";
+import { LogoMark } from "@/components/icons/Logo";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -35,10 +35,10 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-(--container-max) items-center justify-between px-6 py-5 lg:px-10">
         <Link href="/" className="relative z-10" aria-label="Movo home">
-          <Logo />
+          <LogoMark className="h-8 w-11" />
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -55,20 +55,20 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button
             href="/contact"
             variant="primary"
             className="px-6 py-3 text-xs"
           >
-            Start Moving
+            Start Something
           </Button>
         </div>
 
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          className="relative z-10 flex h-10 w-10 items-center justify-center md:hidden"
+          className="relative z-10 flex h-10 w-10 items-center justify-center lg:hidden"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
@@ -83,7 +83,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="border-border bg-bg overflow-hidden border-t md:hidden"
+            className="border-border bg-bg overflow-hidden border-t lg:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-6">
               {NAV_LINKS.map((link) => (
@@ -105,7 +105,7 @@ export function Navbar() {
                 className="mt-6 w-full"
                 onClick={() => setMenuOpen(false)}
               >
-                Start Moving
+                Start Something
               </Button>
             </div>
           </motion.nav>

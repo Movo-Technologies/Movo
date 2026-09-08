@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { GiveawayLogo } from "@/components/icons/GiveawayLogo";
+import { Logo } from "@/components/icons/Logo";
 import { motion } from "motion/react";
 import type { Venture } from "@/data/ventures";
 import { ICONS } from "@/lib/icons";
@@ -55,7 +57,7 @@ export function NodeGraph({ ventures }: { ventures: Venture[] }) {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="bg-fg absolute top-1/2 left-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-sm font-semibold text-white sm:h-28 sm:w-28"
       >
-        MOVO
+        <Logo onDark markClassName="h-10 w-14" />
       </motion.div>
 
       {ventures.map((v, i) => {
@@ -82,7 +84,11 @@ export function NodeGraph({ ventures }: { ventures: Venture[] }) {
               )}
             >
               <span className="border-border bg-bg group-hover:border-accent flex h-14 w-14 items-center justify-center rounded-full border transition-colors duration-300 sm:h-16 sm:w-16">
-                <Icon className="text-fg group-hover:text-accent h-5 w-5 transition-colors duration-300" />
+                {v.slug === "giveaway-app" ? (
+                  <GiveawayLogo className="h-8 w-8" />
+                ) : (
+                  <Icon className="text-fg group-hover:text-accent h-5 w-5 transition-colors duration-300" />
+                )}
               </span>
               <span className="text-fg-muted group-hover:text-fg max-w-[6rem] text-xs font-medium transition-colors duration-300">
                 {v.name}

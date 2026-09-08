@@ -1,184 +1,206 @@
 "use client";
-
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
-
-type Status = "idle" | "submitting" | "success" | "error";
-
-const initialValues = {
-  name: "",
-  email: "",
-  company: "",
-  message: "",
-  website: "",
-};
-
-export function ContactForm() {
-  const [values, setValues] = useState(initialValues);
-  const [status, setStatus] = useState<Status>("idle");
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-
-  function updateField(field: keyof typeof values, value: string) {
-    setValues((v) => ({ ...v, [field]: value }));
-  }
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+import { INTENTS, fieldsFor, type Intent } from "@/lib/enquiries";
+export function ContactForm({
+  intent = "general",
+  host = false,
+  discordUrl,
+}: {
+  intent?: Intent;
+  host?: boolean;
+  discordUrl?: string;
+}) {
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
+  const busy = useRef(false);
+  const key = useRef<string | null>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (status === "success") {
+      successRef.current?.focus();
+      successRef.current?.scrollIntoView({ block: "center" });
+    }
+  }, [status]);
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (busy.current) return;
+    busy.current = true;
     setStatus("submitting");
-    setFieldErrors({});
-
+    setError("");
+    const data = new FormData(event.currentTarget);
+    data.set("intent", intent);
+    key.current ??= crypto.randomUUID();
+    data.set("submissionId", key.current);
     try {
-      const res = await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: data,
       });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        setFieldErrors(data.errors ?? {});
-        setStatus("error");
-        return;
-      }
-
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(
+          result.error ?? "Please check your details and try again.",
+        );
       setStatus("success");
-      setValues(initialValues);
-    } catch {
+    } catch (e) {
+      setError(
+        e instanceof Error
+          ? e.message
+          : "We couldn’t save your enquiry. Please try again.",
+      );
       setStatus("error");
+    } finally {
+      busy.current = false;
     }
   }
-
-  if (status === "success") {
+  if (status === "success")
     return (
-      <div className="border-border rounded-2xl border p-10 text-center">
-        <p className="text-fg text-2xl font-semibold tracking-tight">
-          Message sent.
+      <div
+        ref={successRef}
+        tabIndex={-1}
+        role="status"
+        className="border-border scroll-mt-28 rounded-2xl border p-8"
+      >
+        <h2 className="text-2xl font-semibold">
+          {intent === "whitelist"
+            ? "You’re on the list."
+            : "Your enquiry is saved."}
+        </h2>
+        <p className="text-fg-muted mt-4">
+          {intent === "whitelist"
+            ? "We’ll invite testers in batches as early access expands."
+            : "Thank you. Your details have been recorded for the right team at Movo."}
         </p>
-        <p className="text-fg-muted mt-3">
-          Thanks for reaching out. Someone from Movo will be in touch shortly.
-        </p>
+        {intent === "whitelist" && discordUrl && (
+          <Button className="mt-6" href={discordUrl}>
+            Join the Beta Community
+          </Button>
+        )}
+        <Link className="mt-6 block text-sm underline" href="/ecosystem">
+          Explore the ecosystem
+        </Link>
       </div>
     );
-  }
-
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
+    <form
+      onSubmit={submit}
+      className="flex flex-col gap-7"
+      aria-busy={status === "submitting"}
+    >
       <input
-        type="text"
         name="website"
-        value={values.website}
-        onChange={(e) => updateField("website", e.target.value)}
-        className="hidden"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
+        className="hidden"
       />
-
-      <Field
-        label="Name"
-        name="name"
-        value={values.name}
-        onChange={(v) => updateField("name", v)}
-        error={fieldErrors.name}
-      />
-      <Field
-        label="Email"
-        name="email"
-        type="email"
-        value={values.email}
-        onChange={(v) => updateField("email", v)}
-        error={fieldErrors.email}
-      />
-      <Field
-        label="Company"
-        name="company"
-        value={values.company}
-        onChange={(v) => updateField("company", v)}
-        optional
-      />
-      <Field
-        label="Message"
-        name="message"
-        value={values.message}
-        onChange={(v) => updateField("message", v)}
-        error={fieldErrors.message}
-        textarea
-      />
-
-      {status === "error" && Object.keys(fieldErrors).length === 0 && (
-        <p className="text-sm text-red-600">
-          Something went wrong. Please try again in a moment.
+      <fieldset
+        disabled={status === "submitting"}
+        className="flex min-w-0 flex-col gap-7"
+      >
+        <legend className="mb-6 text-xl font-semibold">
+          {INTENTS[intent].label}
+        </legend>
+        {fieldsFor(intent).map((field) => {
+          const id = `${intent}-${field.name}`;
+          const styles =
+            "w-full min-w-0 border-b border-border bg-transparent py-3 text-base text-fg focus:border-fg";
+          return (
+            <div key={field.name}>
+              <label
+                htmlFor={id}
+                className="text-fg-muted mb-2 block text-sm font-medium"
+              >
+                {field.label}
+                {field.optional ? " (optional)" : ""}
+              </label>
+              {field.options ? (
+                <select
+                  id={id}
+                  name={field.name}
+                  required={!field.optional}
+                  className={styles}
+                  defaultValue={
+                    field.name === "host" && host
+                      ? "Yes"
+                      : field.name === "service" && intent === "release"
+                        ? "Distribution"
+                        : ""
+                  }
+                >
+                  <option value="" disabled>
+                    Select an option
+                  </option>
+                  {field.options.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </select>
+              ) : field.type === "textarea" ? (
+                <textarea
+                  id={id}
+                  name={field.name}
+                  required={!field.optional}
+                  rows={5}
+                  maxLength={5000}
+                  className={styles}
+                />
+              ) : (
+                <input
+                  id={id}
+                  name={field.name}
+                  type={field.type ?? "text"}
+                  required={!field.optional}
+                  maxLength={field.type === "file" ? undefined : 500}
+                  min={field.type === "number" ? 1 : undefined}
+                  accept={
+                    field.type === "file"
+                      ? ".pdf,.txt,.png,.jpg,.jpeg"
+                      : undefined
+                  }
+                  autoComplete={
+                    field.name === "name"
+                      ? "name"
+                      : field.name === "email"
+                        ? "email"
+                        : field.name === "phone"
+                          ? "tel"
+                          : undefined
+                  }
+                  className={styles}
+                />
+              )}
+            </div>
+          );
+        })}
+        <p className="text-fg-muted text-sm leading-relaxed">
+          {intent === "whitelist"
+            ? "We use these details to manage beta invitations, identify test hosts and contact you about early access."
+            : "We use your details to respond to this enquiry and route it to the relevant Movo team."}{" "}
+          Only share information needed for your enquiry.
+        </p>
+        <Button type="submit" className="w-full sm:w-fit">
+          {status === "submitting" ? "Saving…" : INTENTS[intent].action}
+        </Button>
+      </fieldset>
+      {error && (
+        <p role="alert" className="text-sm text-red-700">
+          {error} Your entries are still here.{" "}
+          {intent !== "whitelist" && (
+            <>
+              You can also email{" "}
+              <a
+                className="break-all underline"
+                href={`mailto:${INTENTS[intent].email}`}
+              >
+                {INTENTS[intent].email}
+              </a>
+              .
+            </>
+          )}
         </p>
       )}
-
-      <Button
-        type="submit"
-        variant="primary"
-        disabled={status === "submitting"}
-        className="w-full sm:w-fit"
-      >
-        {status === "submitting" ? "Sending..." : "Send Message"}
-      </Button>
     </form>
-  );
-}
-
-function Field({
-  label,
-  name,
-  value,
-  onChange,
-  error,
-  optional,
-  textarea,
-  type = "text",
-}: {
-  label: string;
-  name: string;
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
-  optional?: boolean;
-  textarea?: boolean;
-  type?: string;
-}) {
-  const baseClasses = cn(
-    "w-full border-b bg-transparent py-3 text-lg text-fg outline-none transition-colors duration-300 placeholder:text-fg-muted/60",
-    error ? "border-red-500" : "border-border focus:border-fg",
-  );
-
-  return (
-    <div>
-      <label
-        htmlFor={name}
-        className="text-fg-muted mb-2 block text-sm font-medium"
-      >
-        {label}
-        {optional && <span className="text-fg-muted/60"> (optional)</span>}
-      </label>
-      {textarea ? (
-        <textarea
-          id={name}
-          name={name}
-          rows={4}
-          required={!optional}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className={cn(baseClasses, "resize-none")}
-        />
-      ) : (
-        <input
-          id={name}
-          name={name}
-          type={type}
-          required={!optional}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className={baseClasses}
-        />
-      )}
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
-    </div>
   );
 }

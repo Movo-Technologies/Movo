@@ -1,9 +1,11 @@
 "use client";
+import { GiveawayLogo } from "@/components/icons/GiveawayLogo";
 
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import type { Venture } from "@/data/ventures";
+import { DIRECTORY_SUMMARIES } from "@/data/editorial";
 import { ICONS } from "@/lib/icons";
 
 export function VentureCard({
@@ -25,16 +27,20 @@ export function VentureCard({
         delay: index * 0.07,
         ease: [0.16, 1, 0.3, 1],
       }}
-      tabIndex={0}
-      className="group border-border hover:border-fg focus-within:border-fg grid grid-rows-[auto_0fr] rounded-2xl border p-8 transition-[grid-template-rows,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus-within:grid-rows-[auto_1fr] hover:grid-rows-[auto_1fr]"
+
+      className="group border-border hover:border-fg focus-within:border-fg grid grid-rows-[auto_1fr] rounded-2xl border p-8 transition-[grid-template-rows,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus-within:grid-rows-[auto_1fr] hover:grid-rows-[auto_1fr]"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <Icon className="text-fg h-6 w-6" strokeWidth={1.5} />
+          {venture.slug === "giveaway-app" ? (
+            <GiveawayLogo className="h-7 w-7" />
+          ) : (
+            <Icon className="text-fg h-6 w-6" strokeWidth={1.5} />
+          )}
           <h3 className="text-fg mt-5 text-xl font-semibold tracking-tight">
             {venture.name}
           </h3>
-          <p className="text-fg-muted mt-2 text-sm">{venture.tagline}</p>
+          <p className="text-fg-muted mt-2 text-sm">{venture.focus}</p>
         </div>
         <span className="border-border text-fg-muted rounded-full border px-3 py-1 text-xs whitespace-nowrap">
           {venture.status}
@@ -43,7 +49,7 @@ export function VentureCard({
 
       <div className="overflow-hidden">
         <p className="text-fg-muted mt-5 max-w-md text-sm leading-relaxed">
-          {venture.description}
+          {DIRECTORY_SUMMARIES[venture.slug] ?? venture.description}
         </p>
         <Link
           href={`/ecosystem/${venture.slug}`}

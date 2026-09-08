@@ -1,3 +1,4 @@
+import { BrandVisual } from "@/components/sections/BrandVisual";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import { PageHero } from "@/components/sections/PageHero";
@@ -5,7 +6,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { NodeGraph } from "@/components/motion/NodeGraph";
 import { VentureCard } from "@/components/ui/VentureCard";
 import { CTASection } from "@/components/sections/CTASection";
-import { VENTURES } from "@/data/ventures";
+import { ECOSYSTEM } from "@/data/ventures";
 
 export const metadata: Metadata = buildMetadata({
   title: "Ecosystem",
@@ -18,14 +19,15 @@ export default function EcosystemPage() {
   return (
     <>
       <PageHero
+        visual={<BrandVisual name="ecosystem" priority />}
         eyebrow="Ecosystem"
-        title="One ecosystem. Infinite momentum."
-        description="Every venture inside Movo shares the same origin, philosophy, and infrastructure: a single system built to keep generating momentum across industries."
+        title="Different disciplines. One direction."
+        description="Technology does not exist separately from culture, business, creativity or the physical world. Neither does Movo. Our ecosystem works across disciplines with a shared approach: understand the problem, create deliberately, ship, learn and keep moving."
       />
 
       <section className="border-border border-t py-8 lg:py-16">
         <div className="mx-auto max-w-(--container-max) px-6 lg:px-10">
-          <NodeGraph ventures={VENTURES} />
+          <NodeGraph ventures={ECOSYSTEM} />
         </div>
       </section>
 
@@ -34,17 +36,17 @@ export default function EcosystemPage() {
           <SectionHeader
             eyebrow="The Ventures"
             title="Explore what we’re building."
-            description="Each venture operates independently, but every one is connected by the same belief: motion creates progress."
+            description="Find the team, product or venture closest to what you need. Each has a distinct role within the wider company."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2">
-            {VENTURES.map((venture, i) => (
+            {ECOSYSTEM.map((venture, i) => (
               <VentureCard key={venture.slug} venture={venture} index={i} />
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection />
+      <CTASection title="Find your place in the ecosystem." />
     </>
   );
 }

@@ -27,5 +27,5 @@ export const PHILOSOPHY_PRINCIPLES = [
 
 export const BELIEF_STATEMENT = {
   quote: "Progress begins with movement.",
-  body: "At Movo, we believe that motion is the foundation of growth. We believe that ideas only create value when they are put into action. We believe innovation should serve people, creativity should inspire movement, and technology should accelerate human potential.",
+  body: "An idea earns its value when someone can use it. That is the measure we return to: a clearer workflow, a record ready for listeners, or a product that has a reason to exist.",
 };
