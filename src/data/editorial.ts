@@ -81,7 +81,7 @@ export const HOME_STORIES: Record<string, { headline: string; body: string }> =
     },
     "movo-ventures": {
       headline: "Ideas you can hold, wear and live with.",
-      body: "Our interests reach beyond the screen. Ventures gives new businesses an identity of their own, beginning with El Patron, a thermal wear brand in development.",
+      body: "Our interests reach beyond the screen. Ventures gives new businesses an identity of their own, from El Patron’s work in thermal wear to Encapsul’s plan for making unused flight capacity more useful.",
     },
   };
 export const DIRECTORY_SUMMARIES: Record<string, string> = {
@@ -94,5 +94,5 @@ export const DIRECTORY_SUMMARIES: Record<string, string> = {
   "giveaway-app":
     "A product entering beta with both participants and hosts in the feedback loop. Early access is an invitation to test and influence the experience before launch.",
   "movo-ventures":
-    "The space for businesses with their own market and identity. El Patron introduces its first featured direction: thermal wear.",
+    "The space for businesses with their own market and identity. Explore El Patron in thermal wear and Encapsul in intercity air delivery.",
 };

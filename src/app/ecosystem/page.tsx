@@ -11,7 +11,7 @@ import { ECOSYSTEM } from "@/data/ventures";
 export const metadata: Metadata = buildMetadata({
   title: "Ecosystem",
   description:
-    "Movo Labs, Movo Studios, Movo Systems, Movo Ventures, and what’s next: explore the connected ecosystem of ventures built by Movo.",
+    "Explore Movo Labs, Studios, Systems and Ventures, including Atlas, Giveaway App, El Patron and Encapsul.",
   path: "/ecosystem",
 });
 

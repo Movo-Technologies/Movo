@@ -24,6 +24,11 @@ export const INTENTS = {
     email: "sales@movotechnologies.com",
     action: "Send Product Enquiry",
   },
+  encapsul: {
+    label: "Join Encapsul early access",
+    email: "support@movotechnologies.com",
+    action: "Register Interest",
+  },
   support: {
     label: "Get help with an existing product or service",
     email: "support@movotechnologies.com",
@@ -101,6 +106,26 @@ export function fieldsFor(intent: Intent): FormField[] {
         name: "attachment",
         label: "Attachment (PDF, TXT, PNG or JPG; up to 5 MB)",
         type: "file",
+        optional: true,
+      },
+    ];
+  if (intent === "encapsul")
+    return [
+      ...common,
+      {
+        name: "interest",
+        label: "I’m interested in",
+        options: ["Sending", "Travelling", "Both"],
+      },
+      {
+        name: "beta",
+        label: "Would you also like to test the beta?",
+        options: ["Yes", "No"],
+      },
+      {
+        name: "message",
+        label: "Anything you would like us to know?",
+        type: "textarea",
         optional: true,
       },
     ];

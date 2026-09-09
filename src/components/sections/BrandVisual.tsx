@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Plane } from "lucide-react";
+import { EncapsulLogo } from "@/components/icons/EncapsulLogo";
 import { GiveawayLogo } from "@/components/icons/GiveawayLogo";
 import { EDITORIAL_IMAGES } from "@/data/editorial";
 import { PRODUCT_LINKS } from "@/data/products";
@@ -17,6 +19,7 @@ export function BrandVisual({
   const image = EDITORIAL_IMAGES[name];
   const isGiveaway = name === "giveaway-app";
   const isAtlas = name === "atlas" || name === "movo-systems";
+  const isEncapsul = name === "encapsul";
   const source = isGiveaway
     ? PRODUCT_LINKS.giveaway
     : isAtlas
@@ -25,7 +28,7 @@ export function BrandVisual({
   return (
     <figure className="min-w-0">
       <div
-        className={`relative aspect-[3/2] overflow-hidden rounded-sm ${isGiveaway ? "bg-bg-dark" : isAtlas ? "border-border border bg-[#f3f3f3]" : "bg-[#ededed]"}`}
+        className={`relative aspect-[3/2] overflow-hidden rounded-sm ${isGiveaway ? "bg-bg-dark" : isAtlas ? "border-border border bg-[#f3f3f3]" : isEncapsul ? "border border-[#dce3d1] bg-[#e9eedf]" : "bg-[#ededed]"}`}
       >
         {isGiveaway ? (
           <div className="absolute inset-0 flex items-center justify-center">
@@ -42,6 +45,40 @@ export function BrandVisual({
               loading={priority ? "eager" : "lazy"}
               className="h-full w-full object-contain grayscale"
             />
+          </div>
+        ) : isEncapsul ? (
+          <div className="absolute inset-0 flex flex-col justify-between p-7 text-[#254e36] sm:p-10">
+            <div className="flex items-center justify-between">
+              <EncapsulLogo className="h-10 w-10" />
+              <span className="font-mono text-xs tracking-widest uppercase">
+                Planned pilot
+              </span>
+            </div>
+            <div className="flex items-center gap-4">
+              <div>
+                <span className="block font-mono text-xs">FROM</span>
+                <strong className="text-4xl font-semibold sm:text-5xl">
+                  LOS
+                </strong>
+                <span className="block text-sm">Lagos</span>
+              </div>
+              <div
+                className="flex flex-1 items-center gap-3"
+                aria-hidden="true"
+              >
+                <span className="flex-1 border-t border-dashed border-[#6f8d57]" />
+                <Plane className="h-6 w-6 rotate-45" strokeWidth={1.5} />
+                <span className="flex-1 border-t border-dashed border-[#6f8d57]" />
+              </div>
+              <div className="text-right">
+                <span className="block font-mono text-xs">TO</span>
+                <strong className="text-4xl font-semibold sm:text-5xl">
+                  ABV
+                </strong>
+                <span className="block text-sm">Abuja</span>
+              </div>
+            </div>
+            <p className="text-sm font-medium">Empty kilos. Full potential.</p>
           </div>
         ) : image ? (
           <Image
@@ -61,7 +98,9 @@ export function BrandVisual({
               ? "Interactive participation. A distinct identity."
               : isAtlas
                 ? "Atlas · Tenant workspace preview"
-                : image?.detailCaption}
+                : isEncapsul
+                  ? "Encapsul · Air delivery concept in early access"
+                  : image?.detailCaption}
           </span>
           {source && (
             <Link

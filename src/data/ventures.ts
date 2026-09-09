@@ -10,6 +10,7 @@ export type Venture = {
   status: "Active" | "Building" | "Future" | "Early Access / Beta";
   paragraphs?: string[];
   capabilities?: [string, string][];
+  capabilitiesHeading?: string;
   primary: [string, string];
   secondary?: [string, string];
   email?: string;
@@ -54,6 +55,7 @@ export const VENTURES: Venture[] = [
         "Support from concept and requirements through interface, engineering, testing and deployment.",
       ],
     ],
+    capabilitiesHeading: "What we can build.",
     primary: ["Start a Project", "/contact?intent=labs"],
     secondary: ["Talk to Movo Labs", "mailto:labs@movotechnologies.com"],
     email: "labs@movotechnologies.com",
@@ -92,6 +94,7 @@ export const VENTURES: Venture[] = [
         "Supporting artists through preparing and distributing releases to major digital streaming platforms. Tell us about your release so we can discuss the support required.",
       ],
     ],
+    capabilitiesHeading: "From the first idea to the release.",
     primary: ["Book a Project", "/contact?intent=studios"],
     secondary: ["Plan a Release", "/contact?intent=release"],
     email: "studio@movotechnologies.com",
@@ -142,10 +145,21 @@ export const VENTURES: Venture[] = [
       "Movo Ventures develops businesses that extend beyond traditional software and services.",
     paragraphs: [
       "It gives Movo room to explore products, markets and ideas that deserve an identity and operating model of their own.",
-      "El Patron is the first venture featured here: an emerging thermal wear brand with its own character, connected to Movo’s shared approach to building.",
+      "Its current directions include El Patron, an emerging thermal wear brand, and Encapsul, an early-stage air-delivery concept built around unused baggage capacity on scheduled flights.",
     ],
-    primary: ["Explore El Patron", "/ecosystem/el-patron"],
-    secondary: ["Product Enquiries", "/contact?intent=el-patron"],
+    capabilities: [
+      [
+        "El Patron",
+        "A thermal wear brand approaching cold-weather clothing through utility, material and identity.",
+      ],
+      [
+        "Encapsul",
+        "A planned Nigerian delivery service exploring how confirmed spare baggage capacity can help urgent parcels move between cities.",
+      ],
+    ],
+    capabilitiesHeading: "Two ventures taking shape.",
+    primary: ["Explore Encapsul", "/ecosystem/encapsul"],
+    secondary: ["Explore El Patron", "/ecosystem/el-patron"],
   },
   {
     slug: "atlas",
@@ -170,6 +184,7 @@ export const VENTURES: Venture[] = [
         "Offer an ERP under your own brand, with a provider portal to manage client workspaces, branding and module access.",
       ],
     ],
+    capabilitiesHeading: "Two ways to put Atlas to work.",
     primary: ["Request a Demo", "/contact?intent=atlas"],
     secondary: ["Visit Atlas", PRODUCT_LINKS.atlas],
     email: "support@movotechnologies.com",
@@ -189,6 +204,39 @@ export const VENTURES: Venture[] = [
     ],
     primary: ["Product Enquiries", "/contact?intent=el-patron"],
     secondary: ["Explore Movo Ventures", "/ecosystem/movo-ventures"],
+  },
+  {
+    slug: "encapsul",
+    name: "Encapsul",
+    focus: "Air Delivery & Logistics",
+    icon: "plane",
+    status: "Early Access / Beta",
+    tagline: "Empty kilos. Full potential.",
+    description:
+      "Encapsul is exploring a new way to move urgent items between Nigerian cities by making better use of confirmed spare baggage capacity on scheduled passenger flights.",
+    paragraphs: [
+      "Travellers can pledge baggage allowance they do not need and earn from capacity confirmed with the airline. Encapsul handles parcels separately, so travellers do not carry or manage another person’s item.",
+      "For senders, the service is being designed around screened, tracked delivery for documents, small business parts and other items that cannot wait. The planned first corridor is Lagos to Abuja.",
+      "Encapsul is still in development. Launch depends on the required approvals, airline agreements and a successful pilot.",
+    ],
+    capabilities: [
+      [
+        "For travellers",
+        "Pledge unused allowance while keeping the trip itself unchanged. Earnings are tied to spare capacity confirmed with the airline.",
+      ],
+      [
+        "For senders",
+        "Access a service being designed for screened, tracked delivery between cities on scheduled passenger flights.",
+      ],
+      [
+        "The first corridor",
+        "Begin with a planned Lagos-to-Abuja pilot, learn from one route and expand only after the model is proven.",
+      ],
+    ],
+    capabilitiesHeading: "One flight. Two ways to get more.",
+    primary: ["Join Early Access", "/contact?intent=encapsul"],
+    secondary: ["Explore Movo Ventures", "/ecosystem/movo-ventures"],
+    email: "support@movotechnologies.com",
   },
   {
     slug: "future-ventures",

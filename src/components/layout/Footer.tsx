@@ -40,6 +40,7 @@ const groups = [
       ["Request a Demo", "/contact?intent=atlas"],
       ["Movo Ventures", "/ecosystem/movo-ventures"],
       ["El Patron", "/ecosystem/el-patron"],
+      ["Encapsul · Early Access", "/ecosystem/encapsul"],
       ["Support", "/contact?intent=support"],
     ],
     emails: ["sales", "support"],

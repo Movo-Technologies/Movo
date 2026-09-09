@@ -53,11 +53,7 @@ export default async function VenturePage({
         >
           <div className={sectionClass}>
             <h2 className="text-[length:var(--text-h2)] font-semibold">
-              {v.slug === "movo-labs"
-                ? "What we can build."
-                : v.slug === "atlas"
-                  ? "Two ways to put Atlas to work."
-                  : "From the first idea to the release."}
+              {v.capabilitiesHeading ?? "What it is designed to do."}
             </h2>
             <dl className="mt-12 grid gap-x-16 gap-y-8 sm:grid-cols-2">
               {v.capabilities.map(([title, copy]) => (

@@ -8,6 +8,7 @@ import {
   Clapperboard,
   Network,
   Infinity as InfinityIcon,
+  Plane,
 } from "lucide-react";
 
 export const ICONS = {
@@ -20,6 +21,7 @@ export const ICONS = {
   clapperboard: Clapperboard,
   network: Network,
   infinity: InfinityIcon,
+  plane: Plane,
 } as const;
 
 export type IconName = keyof typeof ICONS;
