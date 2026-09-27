@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Movo: Built in Motion",
     short_name: "Movo",
     description:
-      "Movo is an innovation company building ventures, technologies, and experiences that create momentum across industries.",
+      "Movo Technologies builds software, creative services, digital products and ventures.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

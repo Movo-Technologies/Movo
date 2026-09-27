@@ -251,6 +251,9 @@ export const VENTURES: Venture[] = [
   },
 ];
 export const ECOSYSTEM = VENTURES.slice(0, 5);
+export const INDEXABLE_VENTURES = VENTURES.filter(
+  (venture) => venture.status !== "Future",
+);
 export function getVentureBySlug(slug: string) {
   return VENTURES.find((v) => v.slug === slug);
 }

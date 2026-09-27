@@ -7,6 +7,7 @@ import { MotionProvider } from "@/components/motion/MotionProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   ...buildMetadata({ title: "Movo" }),
@@ -40,6 +41,32 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
     >
       <body className="bg-bg text-fg flex min-h-full flex-col">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${SITE_URL}/#organization`,
+                name: "Movo Technologies",
+                alternateName: "Movo",
+                url: SITE_URL,
+                logo: `${SITE_URL}/brand/movo.png`,
+                description:
+                  "A company building software, creative services, digital products and ventures.",
+                email: "info@movotechnologies.com",
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${SITE_URL}/#website`,
+                url: SITE_URL,
+                name: "Movo Technologies",
+                publisher: { "@id": `${SITE_URL}/#organization` },
+                inLanguage: "en",
+              },
+            ],
+          }}
+        />
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>

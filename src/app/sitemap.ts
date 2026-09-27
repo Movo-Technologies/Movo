@@ -1,6 +1,23 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/metadata";
-import { VENTURES } from "@/data/ventures";
+import { absoluteUrl } from "@/lib/metadata";
+import { INDEXABLE_VENTURES } from "@/data/ventures";
+import { EDITORIAL_IMAGES } from "@/data/editorial";
+
+const routeImages: Record<string, string[]> = {
+  "": ["/brand/movo.png"],
+  "/about": [EDITORIAL_IMAGES.about.src],
+  "/philosophy": [EDITORIAL_IMAGES.philosophy.src],
+  "/ecosystem": [EDITORIAL_IMAGES.ecosystem.src],
+  "/contact": [EDITORIAL_IMAGES.contact.src],
+};
+
+function imagesForVenture(slug: string) {
+  if (slug === "giveaway-app") return ["/brand/giveaway-full.png"];
+  if (slug === "movo-systems" || slug === "atlas")
+    return ["/images/atlas-dashboard.webp"];
+  if (slug === "encapsul") return ["/brand/encapsul.svg"];
+  return EDITORIAL_IMAGES[slug] ? [EDITORIAL_IMAGES[slug].src] : [];
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -10,13 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/ecosystem",
     "/contact",
   ].map((path) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified: new Date(),
+    url: absoluteUrl(path || "/"),
+    images: routeImages[path].map(absoluteUrl),
   }));
 
-  const ventureRoutes = VENTURES.map((v) => ({
-    url: `${SITE_URL}/ecosystem/${v.slug}`,
-    lastModified: new Date(),
+  const ventureRoutes = INDEXABLE_VENTURES.map((v) => ({
+    url: absoluteUrl(`/ecosystem/${v.slug}`),
+    images: imagesForVenture(v.slug).map(absoluteUrl),
   }));
 
   return [...staticRoutes, ...ventureRoutes];

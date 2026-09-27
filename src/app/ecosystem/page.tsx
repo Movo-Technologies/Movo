@@ -6,10 +6,11 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { NodeGraph } from "@/components/motion/NodeGraph";
 import { VentureCard } from "@/components/ui/VentureCard";
 import { CTASection } from "@/components/sections/CTASection";
-import { ECOSYSTEM } from "@/data/ventures";
+import { ECOSYSTEM, INDEXABLE_VENTURES } from "@/data/ventures";
+import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Ecosystem",
+  title: "Movo Ecosystem: Teams, Products & Ventures",
   description:
     "Explore Movo Labs, Studios, Systems and Ventures, including Atlas, Giveaway App, El Patron and Encapsul.",
   path: "/ecosystem",
@@ -18,6 +19,11 @@ export const metadata: Metadata = buildMetadata({
 export default function EcosystemPage() {
   return (
     <>
+      <WebPageJsonLd
+        path="/ecosystem"
+        name="Movo Ecosystem"
+        description="Explore Movo Labs, Studios, Systems and Ventures, including Atlas, Giveaway App, El Patron and Encapsul."
+      />
       <PageHero
         visual={<BrandVisual name="ecosystem" priority />}
         eyebrow="Ecosystem"
@@ -39,7 +45,7 @@ export default function EcosystemPage() {
             description="Find the team, product or venture closest to what you need. Each has a distinct role within the wider company."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2">
-            {ECOSYSTEM.map((venture, i) => (
+            {INDEXABLE_VENTURES.map((venture, i) => (
               <VentureCard key={venture.slug} venture={venture} index={i} />
             ))}
           </div>

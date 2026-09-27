@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 
-const SITE_NAME = "Movo";
+const SITE_NAME = "Movo Technologies";
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.movotechnologies.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ??
+  "https://www.movotechnologies.com";
 const DEFAULT_DESCRIPTION =
-  "Movo Technologies builds software, digital products, creative systems and ventures. Explore Movo Labs, Studios, Atlas, Giveaway App early access and El Patron.";
+  "Movo Technologies builds software, creative services, digital products and ventures through Movo Labs, Studios, Systems and Ventures.";
+
+export function absoluteUrl(path = "/") {
+  const url = new URL(path, `${SITE_URL}/`);
+  return url.pathname === "/" && !url.search && !url.hash
+    ? url.origin
+    : url.toString();
+}
 
 export function buildMetadata({
   title,
@@ -16,13 +24,16 @@ export function buildMetadata({
   path?: string;
 }): Metadata {
   const fullTitle =
-    title === SITE_NAME ? `${SITE_NAME} | Built in Motion` : `${title} | Movo`;
-  const url = `${SITE_URL}${path}`;
+    path === "/"
+      ? "Movo Technologies | Software, Creative Services & Ventures"
+      : `${title} | Movo Technologies`;
+  const url = absoluteUrl(path);
 
   return {
     title: fullTitle,
     description,
     alternates: { canonical: url },
+    robots: { index: true, follow: true },
     openGraph: {
       title: fullTitle,
       description,

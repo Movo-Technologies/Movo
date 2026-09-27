@@ -7,6 +7,8 @@ import { VentureStory, sectionClass } from "@/components/sections/VentureStory";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { VENTURES, getVentureBySlug } from "@/data/ventures";
 import { BrandVisual } from "@/components/sections/BrandVisual";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { absoluteUrl, SITE_URL } from "@/lib/metadata";
 export function generateStaticParams() {
   return VENTURES.map((v) => ({ slug: v.slug }));
 }
@@ -16,11 +18,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const v = getVentureBySlug((await params).slug);
-  return buildMetadata({
-    title: v?.name ?? "Ecosystem",
+  const metadata = buildMetadata({
+    title: v ? `${v.name}: ${v.focus}` : "Ecosystem",
     description: v?.description,
     path: `/ecosystem/${v?.slug ?? ""}`,
   });
+  if (v?.status === "Future") {
+    metadata.robots = { index: false, follow: true };
+  }
+  return metadata;
 }
 export default async function VenturePage({
   params,
@@ -39,7 +45,54 @@ export default async function VenturePage({
   } catch {}
   return (
     <>
+      {v.status !== "Future" && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": `${absoluteUrl(`/ecosystem/${v.slug}`)}#webpage`,
+                url: absoluteUrl(`/ecosystem/${v.slug}`),
+                name: v.name,
+                description: v.description,
+                isPartOf: { "@id": `${SITE_URL}/#website` },
+                about: { "@id": `${SITE_URL}/#organization` },
+                inLanguage: "en",
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: SITE_URL,
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Ecosystem",
+                    item: absoluteUrl("/ecosystem"),
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: v.name,
+                    item: absoluteUrl(`/ecosystem/${v.slug}`),
+                  },
+                ],
+              },
+            ],
+          }}
+        />
+      )}
       <PageHero
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Ecosystem", href: "/ecosystem" },
+          { label: v.name },
+        ]}
         eyebrow={`${v.focus} · ${v.status}`}
         title={v.name}
         description={v.tagline}

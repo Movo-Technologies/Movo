@@ -7,9 +7,10 @@ import { PrincipleGraphic } from "@/components/motion/PrincipleGraphic";
 import { CTASection } from "@/components/sections/CTASection";
 import { PHILOSOPHY_PRINCIPLES, BELIEF_STATEMENT } from "@/data/philosophy";
 import { cn } from "@/lib/utils";
+import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Philosophy",
+  title: "Movo Philosophy: Built in Motion",
   description:
     "Motion over stagnation. Progress over perfection. Creation over consumption. Momentum over motivation. This is what Movo believes.",
   path: "/philosophy",
@@ -18,6 +19,11 @@ export const metadata: Metadata = buildMetadata({
 export default function PhilosophyPage() {
   return (
     <>
+      <WebPageJsonLd
+        path="/philosophy"
+        name="Movo Philosophy"
+        description="The four principles Movo uses to guide products, creative work and new ventures."
+      />
       <PageHero
         visual={<BrandVisual name="philosophy" priority />}
         eyebrow="Philosophy"

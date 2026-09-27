@@ -42,7 +42,7 @@ export function BrandVisual({
               height={518}
               alt="Atlas tenant workspace preview from the official product website, with invoices, leads and orders."
               sizes="(min-width:1440px) 640px, (min-width:1024px) 48vw, 100vw"
-              loading={priority ? "eager" : "lazy"}
+              preload={priority}
               className="h-full w-full object-contain grayscale"
             />
           </div>
@@ -86,7 +86,7 @@ export function BrandVisual({
             alt={image.alt}
             fill
             sizes="(min-width:1440px) 640px, (min-width:1024px) 48vw, 100vw"
-            loading={priority ? "eager" : "lazy"}
+            preload={priority}
             className="object-cover grayscale"
           />
         ) : null}

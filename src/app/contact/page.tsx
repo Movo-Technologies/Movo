@@ -5,8 +5,9 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { INTENTS, type Intent } from "@/lib/enquiries";
 import { sectionClass } from "@/components/sections/VentureStory";
+import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
 export const metadata = buildMetadata({
-  title: "Start Something",
+  title: "Contact Movo Technologies",
   description:
     "Build software, book creative work, plan a release, explore Atlas or join Giveaway App early access. Start a conversation with the right Movo team.",
   path: "/contact",
@@ -23,10 +24,15 @@ export default async function ContactPage({
       : undefined;
   return (
     <>
+      <WebPageJsonLd
+        path="/contact"
+        name="Contact Movo Technologies"
+        description="Contact the right Movo team about software, creative services, Atlas, products, support or early access."
+      />
       <PageHero
         visual={<BrandVisual name="contact" priority />}
-        eyebrow="Start Something"
-        title="What are you trying to move forward?"
+        eyebrow="Contact Movo"
+        title="Start a useful conversation."
         description="Tell us what you’re working on and we’ll route the conversation to the right part of Movo."
       />
       <section className="border-border border-t">

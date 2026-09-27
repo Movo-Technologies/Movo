@@ -4,6 +4,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { sectionClass } from "@/components/sections/VentureStory";
 import { CTASection } from "@/components/sections/CTASection";
 import { Button } from "@/components/ui/Button";
+import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
 export const metadata = buildMetadata({
   title: "About Movo Technologies",
   description:
@@ -13,6 +14,11 @@ export const metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
+      <WebPageJsonLd
+        path="/about"
+        name="About Movo Technologies"
+        description="How Movo Technologies organizes software, creative services, products and new ventures around a shared building philosophy."
+      />
       <PageHero
         visual={<BrandVisual name="about" priority />}
         eyebrow="About Movo"
