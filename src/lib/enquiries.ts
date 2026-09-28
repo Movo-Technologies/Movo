@@ -29,6 +29,11 @@ export const INTENTS = {
     email: "support@movotechnologies.com",
     action: "Register Interest",
   },
+  nat: {
+    label: "Apply for Nat private beta",
+    email: "support@movotechnologies.com",
+    action: "Apply for Early Access",
+  },
   support: {
     label: "Get help with an existing product or service",
     email: "support@movotechnologies.com",
@@ -127,6 +132,22 @@ export function fieldsFor(intent: Intent): FormField[] {
         label: "Anything you would like us to know?",
         type: "textarea",
         optional: true,
+      },
+    ];
+  if (intent === "nat")
+    return [
+      ...common,
+      { name: "organization", label: "Organization", optional: true },
+      { name: "website", label: "Website URL", type: "url" },
+      {
+        name: "message",
+        label: "What would you like Nat to help your visitors do?",
+        type: "textarea",
+      },
+      {
+        name: "feedback",
+        label: "Can your team share feedback during the private beta?",
+        options: ["Yes", "No"],
       },
     ];
   if (intent === "studios" || intent === "release")

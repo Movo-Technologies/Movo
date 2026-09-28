@@ -9,6 +9,7 @@ import {
   Network,
   Infinity as InfinityIcon,
   Plane,
+  MessageSquare,
 } from "lucide-react";
 
 export const ICONS = {
@@ -22,6 +23,7 @@ export const ICONS = {
   network: Network,
   infinity: InfinityIcon,
   plane: Plane,
+  message: MessageSquare,
 } as const;
 
 export type IconName = keyof typeof ICONS;

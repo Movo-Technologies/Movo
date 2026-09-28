@@ -19,6 +19,7 @@ export function BrandVisual({
   const image = EDITORIAL_IMAGES[name];
   const isGiveaway = name === "giveaway-app";
   const isAtlas = name === "atlas" || name === "movo-systems";
+  const isNat = name === "nat";
   const isEncapsul = name === "encapsul";
   const source = isGiveaway
     ? PRODUCT_LINKS.giveaway
@@ -28,7 +29,7 @@ export function BrandVisual({
   return (
     <figure className="min-w-0">
       <div
-        className={`relative aspect-[3/2] overflow-hidden rounded-sm ${isGiveaway ? "bg-bg-dark" : isAtlas ? "border-border border bg-[#f3f3f3]" : isEncapsul ? "border border-[#dce3d1] bg-[#e9eedf]" : "bg-[#ededed]"}`}
+        className={`relative aspect-[3/2] overflow-hidden rounded-sm ${isGiveaway ? "bg-bg-dark" : isAtlas ? "border-border border bg-[#f3f3f3]" : isNat ? "border-border border bg-[#f4f1e9]" : isEncapsul ? "border border-[#dce3d1] bg-[#e9eedf]" : "bg-[#ededed]"}`}
       >
         {isGiveaway ? (
           <div className="absolute inset-0 flex items-center justify-center">
@@ -46,6 +47,16 @@ export function BrandVisual({
               className="h-full w-full object-contain grayscale"
             />
           </div>
+        ) : isNat ? (
+          <Image
+            src="/images/nat-product-card.webp"
+            width={1730}
+            height={909}
+            alt="Nat private beta product artwork: Your website knows the answer. Now it can say it."
+            sizes="(min-width:1440px) 640px, (min-width:1024px) 48vw, 100vw"
+            preload={priority}
+            className="h-full w-full object-contain"
+          />
         ) : isEncapsul ? (
           <div className="absolute inset-0 flex flex-col justify-between p-7 text-[#254e36] sm:p-10">
             <div className="flex items-center justify-between">
@@ -98,9 +109,11 @@ export function BrandVisual({
               ? "Interactive participation. A distinct identity."
               : isAtlas
                 ? "Atlas · Tenant workspace preview"
-                : isEncapsul
-                  ? "Encapsul · Air delivery concept in early access"
-                  : image?.detailCaption}
+                : isNat
+                  ? "Nat · AI customer engagement in private beta"
+                  : isEncapsul
+                    ? "Encapsul · Air delivery concept in early access"
+                    : image?.detailCaption}
           </span>
           {source && (
             <Link

@@ -1,6 +1,7 @@
 "use client";
 import { GiveawayLogo } from "@/components/icons/GiveawayLogo";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
@@ -34,6 +35,14 @@ export function VentureCard({
         <div>
           {venture.slug === "giveaway-app" ? (
             <GiveawayLogo className="h-7 w-7" />
+          ) : venture.slug === "nat" ? (
+            <Image
+              src="/brand/nat.svg"
+              width={28}
+              height={28}
+              alt="Nat"
+              className="h-7 w-7 rounded-[9px]"
+            />
           ) : (
             <Icon className="text-fg h-6 w-6" strokeWidth={1.5} />
           )}

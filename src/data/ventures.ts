@@ -110,10 +110,21 @@ export const VENTURES: Venture[] = [
       "Movo Systems develops software products designed around recurring operational and business problems.",
     paragraphs: [
       "Where Movo Labs builds solutions for individual clients and projects, Movo Systems focuses on products that can serve many organizations through a repeatable software platform.",
-      "Atlas leads this work: an ERP platform that connects day-to-day business operations and gives providers a foundation for serving their own clients.",
+      "Atlas connects day-to-day business operations in one ERP foundation. Nat is being prepared to help websites answer questions, capture enquiries and carry useful context to the right team.",
     ],
-    primary: ["Explore Atlas", "/ecosystem/atlas"],
-    secondary: ["Request a Demo", "/contact?intent=atlas"],
+    capabilities: [
+      [
+        "Atlas",
+        "An open-core ERP platform for organizations and software providers that brings finance, sales, inventory and people operations into a shared system.",
+      ],
+      [
+        "Nat",
+        "An AI customer engagement layer entering private beta, designed to turn approved website and business knowledge into useful conversations.",
+      ],
+    ],
+    capabilitiesHeading: "Two products. One focus on useful systems.",
+    primary: ["Explore Nat", "/ecosystem/nat"],
+    secondary: ["Explore Atlas", "/ecosystem/atlas"],
   },
   {
     slug: "giveaway-app",
@@ -187,6 +198,43 @@ export const VENTURES: Venture[] = [
     capabilitiesHeading: "Two ways to put Atlas to work.",
     primary: ["Request a Demo", "/contact?intent=atlas"],
     secondary: ["Visit Atlas", PRODUCT_LINKS.atlas],
+    email: "support@movotechnologies.com",
+  },
+  {
+    slug: "nat",
+    name: "Nat",
+    focus: "A Movo Systems Product",
+    icon: "message",
+    status: "Early Access / Beta",
+    tagline: "Your website, in conversation.",
+    description:
+      "Nat is an AI customer engagement layer being prepared for private beta. It is designed to learn approved website and business knowledge, answer visitor questions and route useful conversations to the right people.",
+    paragraphs: [
+      "A visitor can ask a question from the page they are already viewing. Nat is designed to respond from approved public content and the business knowledge a team intentionally provides, keeping the answer relevant to that context.",
+      "When a person needs more help, Nat can capture their message, understand the intent and pass the conversation, contact details and a useful summary to a configured destination. People remain responsible for judgment, sensitive issues and commitments.",
+      "Core V1 is entering private beta. The current demonstrations illustrate the product direction; voice conversations and automated briefing features remain planned capabilities.",
+    ],
+    capabilities: [
+      [
+        "Learn approved knowledge",
+        "Use public website content and information the business has deliberately supplied as the basis for responses.",
+      ],
+      [
+        "Answer in context",
+        "Help visitors from the page they are viewing, with answers grounded in the business rather than a generic chat experience.",
+      ],
+      [
+        "Capture and route enquiries",
+        "Collect a message and the details needed to direct a promising conversation to the appropriate team.",
+      ],
+      [
+        "Carry the context",
+        "Pass along the visitor's question, conversation and a concise summary so a human can pick up with less repetition.",
+      ],
+    ],
+    capabilitiesHeading: "A more useful first response.",
+    primary: ["Apply for Early Access", "/contact?intent=nat"],
+    secondary: ["Explore Movo Systems", "/ecosystem/movo-systems"],
     email: "support@movotechnologies.com",
   },
   {

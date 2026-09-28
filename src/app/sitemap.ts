@@ -15,6 +15,7 @@ function imagesForVenture(slug: string) {
   if (slug === "giveaway-app") return ["/brand/giveaway-full.png"];
   if (slug === "movo-systems" || slug === "atlas")
     return ["/images/atlas-dashboard.webp"];
+  if (slug === "nat") return ["/images/nat-product-card.webp"];
   if (slug === "encapsul") return ["/brand/encapsul.svg"];
   return EDITORIAL_IMAGES[slug] ? [EDITORIAL_IMAGES[slug].src] : [];
 }

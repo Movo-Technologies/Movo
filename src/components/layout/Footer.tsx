@@ -38,6 +38,7 @@ const groups = [
     links: [
       ["Atlas", "/ecosystem/atlas"],
       ["Request a Demo", "/contact?intent=atlas"],
+      ["Nat · Private Beta", "/ecosystem/nat"],
       ["Movo Ventures", "/ecosystem/movo-ventures"],
       ["El Patron", "/ecosystem/el-patron"],
       ["Encapsul · Early Access", "/ecosystem/encapsul"],

@@ -12,7 +12,7 @@ import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
 export const metadata: Metadata = buildMetadata({
   title: "Movo Ecosystem: Teams, Products & Ventures",
   description:
-    "Explore Movo Labs, Studios, Systems and Ventures, including Atlas, Giveaway App, El Patron and Encapsul.",
+    "Explore Movo Labs, Studios, Systems and Ventures, including Atlas, Nat, Giveaway App, El Patron and Encapsul.",
   path: "/ecosystem",
 });
 
@@ -22,7 +22,7 @@ export default function EcosystemPage() {
       <WebPageJsonLd
         path="/ecosystem"
         name="Movo Ecosystem"
-        description="Explore Movo Labs, Studios, Systems and Ventures, including Atlas, Giveaway App, El Patron and Encapsul."
+        description="Explore Movo Labs, Studios, Systems and Ventures, including Atlas, Nat, Giveaway App, El Patron and Encapsul."
       />
       <PageHero
         visual={<BrandVisual name="ecosystem" priority />}

@@ -1,12 +1,14 @@
 # Website visual system
 
-All main pages and all eight division/product pages use the shared 3:2 BrandVisual frame. Home uses the same frames for all five divisions. Photography is grayscale; official logos retain their supplied colors on light backgrounds and white on dark backgrounds.
+All main pages and all nine division/product pages use the shared 3:2 BrandVisual frame. Home uses the same frames for all five divisions. Photography is grayscale; official logos retain their supplied colors on light backgrounds and white on dark backgrounds.
 
 About: company-worktable. Ecosystem: ecosystem-structure. Philosophy: philosophy-stair. Contact: contact-conversation. Labs: labs-workbench. Studios: studios-recording. Ventures and Future Ventures: ventures-materials. El Patron: ventures-textile.
 
 Movo Systems and Atlas use the actual tenant-dashboard preview from https://atlas.bihub.ng/ (retrieved September 8, 2026), saved at public/images/atlas-dashboard.webp. Product copy reflects the official ERP positioning, including organization and provider use cases. Giveaway uses the user-supplied public/brand/giveaway-full.png and giveaway-white.png, and links to https://www.trygiveaway.app. Existing beta status is preserved.
 
 Encapsul uses its official green mark and the factual LOS-to-ABV route from the linked Encapsul Sites project. Its visual is a code-native route diagram, and its copy preserves the product's early-access status, operating caveats and separation between travellers and parcels.
+
+Nat uses the official mark and product artwork from the linked Nat Sites project, saved as public/brand/nat.svg and public/images/nat-product-card.png (served as WebP). The product page preserves its private-beta status, the role of approved knowledge and human escalation, and identifies voice and automated briefing as planned capabilities.
 
 The five new scenes below were generated with the built-in image tool. They illustrate disciplines and ideas, not actual Movo premises or finished products. Earlier prompts are in editorial-images.md. PNG masters are preserved; WebP assets are served through Next Image.
 

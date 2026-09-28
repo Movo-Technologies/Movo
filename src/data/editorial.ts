@@ -77,7 +77,7 @@ export const HOME_STORIES: Record<string, { headline: string; body: string }> =
     },
     "movo-systems": {
       headline: "A shared problem can become a product.",
-      body: "Atlas brings business departments into an ERP workspace. Organizations can run it for themselves; providers can deliver branded workspaces to clients. Explore the product that leads Movo Systems.",
+      body: "Atlas connects the work inside a business. Nat is being prepared to make the business knowledge on a website easier to reach. Together, they show how Movo Systems turns repeated operational gaps into focused products.",
     },
     "movo-ventures": {
       headline: "Ideas you can hold, wear and live with.",
@@ -90,9 +90,10 @@ export const DIRECTORY_SUMMARIES: Record<string, string> = {
   "movo-studios":
     "The creative home for artists shaping a record and its release. Connect the sound, presentation and distribution support your project needs.",
   "movo-systems":
-    "The product business behind Atlas. Its focus is repeatable software, distinct from the individual projects delivered by Labs.",
+    "The product business behind Atlas and Nat. Its focus is repeatable software for recurring operational and customer-engagement problems.",
   "giveaway-app":
     "A product entering beta with both participants and hosts in the feedback loop. Early access is an invitation to test and influence the experience before launch.",
   "movo-ventures":
     "The space for businesses with their own market and identity. Explore El Patron in thermal wear and Encapsul in intercity air delivery.",
+  nat: "An AI customer engagement layer entering private beta, designed to help websites answer from approved knowledge and hand useful context to the right team.",
 };
